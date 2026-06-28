@@ -14,7 +14,7 @@ export interface WechatMessage {
 
 @Injectable()
 export class WechatService {
-  private readonly token = 'delta-ai';
+  private readonly token = process.env.WECHAT_TOKEN || 'delta-ai';
 
   verify(signature: string, timestamp: string, nonce: string) {
     const str = [this.token, timestamp, nonce]
